@@ -55,7 +55,7 @@ let line = [ //матрица содержащая инструкцию как �
 ctx.translate(300,300);// сдвиг системы координат
 
 
-function rotate(angleX = 0.5 , angleZ = 0.3){
+function rotate(angleX = 0.6 , angleY = 0, angleZ = 0.4 ){
 
     let rotationX = [
 
@@ -63,7 +63,17 @@ function rotate(angleX = 0.5 , angleZ = 0.3){
 
         [(0),  Math.cos(angleX* Math.PI / 180), Math.sin(angleX* Math.PI / 180)*(-1)],
 
-        [(0),  Math.sin(angleX* Math.PI / 180), Math.cos(angleX* Math.PI / 180)]
+        [(0),  Math.sin(angleX* Math.PI / 180), Math.cos(angleX* Math.PI / 180)     ]
+
+    ];
+
+    let rotationY = [
+        
+        [  Math.cos(angleY* Math.PI / 180), (0), Math.sin(angleY* Math.PI / 180)*(-1)],
+
+        [(0),                             (1),                                   (0) ],
+
+        [ Math.sin(angleY* Math.PI / 180), (0), Math.cos(angleY* Math.PI / 180)      ]
 
     ];
 
@@ -73,12 +83,14 @@ function rotate(angleX = 0.5 , angleZ = 0.3){
 
         [ Math.sin(angleZ* Math.PI / 180)*(-1), Math.cos(angleZ* Math.PI / 180), (0)],
 
-        [(0),                            (0),                                  (1)]
+        [(0),                            (0),                                    (1)]
 
     ];
 
 
 multiplay(rotationX);//поворот
+
+multiplay(rotationY);
 
 multiplay(rotationZ);
 
